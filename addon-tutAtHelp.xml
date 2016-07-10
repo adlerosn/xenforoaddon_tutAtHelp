@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="tutAtHelp" title="[kiror] Tutorials" version_string="0.1" version_id="1" url="https://github.com/adlerosn/" install_callback_class="tutAtHelp_setup" install_callback_method="install" uninstall_callback_class="tutAtHelp_setup" uninstall_callback_method="uninstall">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <admin_template_modifications/>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="load_class_controller" execute_order="10" callback_class="tutAtHelp_CodeEventListeners_ControllerPublic_Help" callback_method="load_class" active="1" hint="XenForo_ControllerPublic_Help" description="For extending help class."/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <email_template_modifications/>
+  <optiongroups>
+    <group group_id="tutathelpoptgrp" display_order="1" debug_only="0"/>
+    <option option_id="maximagespace" edit_format="spinbox" data_type="integer" can_backup="1">
+      <default_value>20</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="tutathelpoptgrp" display_order="30"/>
+    </option>
+    <option option_id="maxtutorialdrafts" edit_format="spinbox" data_type="integer" can_backup="1">
+      <default_value>5</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="tutathelpoptgrp" display_order="10"/>
+    </option>
+    <option option_id="maxtutorialpending" edit_format="spinbox" data_type="integer" can_backup="1">
+      <default_value>10</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="tutathelpoptgrp" display_order="40"/>
+    </option>
+    <option option_id="maxtutorialsteps" edit_format="spinbox" data_type="integer" can_backup="1">
+      <default_value>15</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="tutathelpoptgrp" display_order="20"/>
+    </option>
+    <option option_id="tutorialfixmargintoptitle" edit_format="spinbox" data_type="integer" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="tutathelpoptgrp" display_order="50"/>
+    </option>
+  </optiongroups>
+  <permissions>
+    <permission_groups>
+      <permission_group permission_group_id="tutathelppermgroup"/>
+    </permission_groups>
+    <permissions>
+      <permission permission_group_id="tutathelppermgroup" permission_id="tutorialcreate" permission_type="flag" default_value="unset" interface_group_id="tutathelppermiface" display_order="1"/>
+      <permission permission_group_id="tutathelppermgroup" permission_id="tutorialmoderate" permission_type="flag" default_value="unset" interface_group_id="tutathelppermiface" display_order="1"/>
+    </permissions>
+    <interface_groups>
+      <interface_group interface_group_id="tutathelppermiface" display_order="1"/>
+    </interface_groups>
+  </permissions>
+  <phrases>
+    <phrase title="option_group_tutathelpoptgrp" version_id="0" version_string="0.0"><![CDATA[[kiror] Tutorials]]></phrase>
+    <phrase title="option_group_tutathelpoptgrp_description" version_id="0" version_string="0.0"><![CDATA[Options for tutorial page.]]></phrase>
+    <phrase title="option_maximagespace" version_id="0" version_string="0.0"><![CDATA[Max image usage]]></phrase>
+    <phrase title="option_maximagespace_explain" version_id="0" version_string="0.0"><![CDATA[The amount of <i>megabytes</i> an user can use for images contained in <i>drafts</i>.]]></phrase>
+    <phrase title="option_maxtutorialdrafts" version_id="0" version_string="0.0"><![CDATA[Max tutorial drafts]]></phrase>
+    <phrase title="option_maxtutorialdrafts_explain" version_id="0" version_string="0.0"><![CDATA[The maximum number of drafts that an user can keep as draft at any time.]]></phrase>
+    <phrase title="option_maxtutorialpending" version_id="0" version_string="0.0"><![CDATA[Max tutorial pending approval]]></phrase>
+    <phrase title="option_maxtutorialpending_explain" version_id="0" version_string="0.0"><![CDATA[The maximum amount of tutorials in moderation queue and drafts.]]></phrase>
+    <phrase title="option_maxtutorialsteps" version_id="0" version_string="0.0"><![CDATA[Max tutorial steps]]></phrase>
+    <phrase title="option_maxtutorialsteps_explain" version_id="0" version_string="0.0"><![CDATA[The maximum number of step an tutorial that an user is creating can have.]]></phrase>
+    <phrase title="option_tutorialfixmargintoptitle" version_id="1" version_string="0.1"><![CDATA[Title: margin-top]]></phrase>
+    <phrase title="option_tutorialfixmargintoptitle_explain" version_id="1" version_string="0.1"><![CDATA[Alignment fix for some styles]]></phrase>
+    <phrase title="permission_group_tutathelppermgroup" version_id="0" version_string="0.0"><![CDATA[[kiror] Tutorials]]></phrase>
+    <phrase title="permission_interface_tutathelppermiface" version_id="0" version_string="0.0"><![CDATA[[kiror] Tutorials]]></phrase>
+    <phrase title="permission_tutathelppermgroup_tutorialcreate" version_id="0" version_string="0.0"><![CDATA[Can create tutorials]]></phrase>
+    <phrase title="permission_tutathelppermgroup_tutorialmoderate" version_id="0" version_string="0.0"><![CDATA[Can moderate tutorials]]></phrase>
+    <phrase title="tutorials" version_id="0" version_string="0.0.0"><![CDATA[Tutorials]]></phrase>
+    <phrase title="tutorials_to_help_you_use_this_site_easier" version_id="0" version_string="0.0.0"><![CDATA[Tutorials to help you use this site, in an easy way.]]></phrase>
+  </phrases>
+  <route_prefixes/>
+  <style_properties/>
+  <templates>
+    <template title="help_tutorials" version_id="0" version_string="0.0"><![CDATA[<xen:title>{xen:phrase tutorials}{$pageTitle}</xen:title>
+
+<xen:navigation>
+	<xen:breadcrumb href="{xen:link help}">{xen:phrase help}</xen:breadcrumb>
+</xen:navigation>
+
+<div class="baseHtml">
+<xen:include template="kiror_tutorials" />
+</div>]]></template>
+    <template title="kiror_tutorials" version_id="0" version_string="0.0"><![CDATA[{xen:raw $html}]]></template>
+  </templates>
+  <public_template_modifications>
+    <modification template="help_index" modification_key="addTutorialLinkAtHelp" description="Add tutorial page link at help" execution_order="10" enabled="1" action="str_replace">
+      <find><![CDATA[{xen:phrase list_of_bb_codes_you_can_use_to_spice_up_look_of_your_messages}</dd>
+	</dl>]]></find>
+      <replace><![CDATA[$0
+<dl>
+	<dt><a href="{xen:link help/tutorials}">{xen:phrase tutorials}</a></dt>
+	<dd>{xen:phrase tutorials_to_help_you_use_this_site_easier}</dd>
+</dl>]]></replace>
+    </modification>
+    <modification template="help_wrapper" modification_key="addTutorialLinkAtHelpSidebar" description="Add tutorial page link at help sidebar" execution_order="10" enabled="1" action="str_replace">
+      <find><![CDATA[<!-- slot: pre_trophies -->]]></find>
+      <replace><![CDATA[$0
+<li><a href="{xen:link help/tutorials}" class="{xen:if "{$selected} == 'tutorials'", 'secondaryContent', 'primaryContent'}">{xen:phrase tutorials}</a></li>]]></replace>
+    </modification>
+  </public_template_modifications>
+  <bb_code_media_sites/>
+  <bb_codes/>
+</addon>
